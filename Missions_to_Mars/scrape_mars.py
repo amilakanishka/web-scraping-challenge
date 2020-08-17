@@ -21,7 +21,7 @@ def scrape():
     browser = Browser('chrome', **executable_path, headless=False)
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
-    browser.is_element_present_by_value('article_teaser_body', wait_time=5)
+    time.sleep(5)
 
     news_soup = BeautifulSoup(browser.html,'html.parser')
     news_title_tag = news_soup.find_all('div', class_ = 'content_title')[1].find('a')
